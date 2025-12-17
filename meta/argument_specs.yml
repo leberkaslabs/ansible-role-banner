@@ -5,7 +5,11 @@ argument_specs:
     description: Manage custom system login banner.
     author: dudecalledbro
     options:
-      banner_content:
+      banner_content_issue:
         type: str
         required: true
         description: This content can be customized by providing your own template.
+      banner_content_motd:
+        type: str
+        required: true
+        description: Define the custom content for the Linux message of the day.

@@ -1,7 +1,7 @@
 ---
 - name: Manage custom system login banner
   ansible.builtin.copy:
-    content: "{{ banner_content }}"
+    content: "{{ banner_content_issue }}"
     dest: "{{ item }}"
     owner: root
     group: root
@@ -9,3 +9,11 @@
   loop:
     - /etc/issue
     - /etc/issue.net
+
+- name: Manage custom message of the day
+  ansible.builtin.copy:
+    content: "{{ banner_content_motd }}"
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: "0644"
