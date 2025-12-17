@@ -1,0 +1,11 @@
+---
+argument_specs:
+  main:
+    short_description: banner
+    description: Manage custom system login banner.
+    author: dudecalledbro
+    options:
+      banner_content:
+        type: str
+        required: true
+        description: This content can be customized by providing your own template.

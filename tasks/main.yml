@@ -1,0 +1,11 @@
+---
+- name: Manage custom system login banner
+  ansible.builtin.copy:
+    content: "{{ banner_content }}"
+    dest: "{{ item }}"
+    owner: root
+    group: root
+    mode: "0644"
+  loop:
+    - /etc/issue
+    - /etc/issue.net
