@@ -1,5 +1,4 @@
 ---
 # Generate the Linux login banner content by rendering the 'issue.j2' template
 # This content can be customized by providing your own template
-# An empty line is appended to the output for proper formatting
-banner_content: "{{ lookup('ansible.builtin.template', 'issue.j2') ~ '\n' }}"
+banner_content: "{{ '\n' ~ lookup('ansible.builtin.template', 'issue.j2') ~ '\n' }}"
