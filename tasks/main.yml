@@ -1,7 +1,7 @@
 ---
 - name: Manage custom system login banner
   ansible.builtin.copy:
-    content: "{{ banner_content_issue }}"
+    content: "{{ banner_issue_template }}"
     dest: "{{ item }}"
     owner: root
     group: root
@@ -12,7 +12,7 @@
 
 - name: Manage custom message of the day
   ansible.builtin.copy:
-    content: "{{ banner_content_motd }}"
+    content: "{{ banner_motd_template }}"
     dest: /etc/motd
     owner: root
     group: root

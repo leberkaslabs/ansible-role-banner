@@ -7,9 +7,10 @@
   $$ |  $$ |\$$$$$$  |$$ | $$ | $$ |\$$$$$$$\ $$ |\$$$$$$$ |$$$$$$$  |
   \__|  \__| \______/ \__| \__| \__| \_______|\__| \_______|\_______/ 
 
-    Hostname........: {{ ansible_fqdn }}
-    IP-Address......: {{ ansible_default_ipv4.address }}
-    Distribution....: {{ ansible_distribution }} {{ ansible_distribution_major_version }} ({{ ansible_system }})
+    Hostname........: {{ ansible_facts.fqdn }}
+    IP-Address......: {{ ansible_facts.default_ipv4.address }}
+    Distribution....: {{ ansible_facts.distribution }} {{ ansible_facts.distribution_major_version }} ({{ ansible_facts.system }})
+    Description.....: {{ banner_issue_description }}
 
   ********************************************************************
   *                                                                  *

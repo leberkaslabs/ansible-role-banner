@@ -1,8 +1,12 @@
 ---
 # Generate the Linux login banner content by rendering the 'issue.j2' template
 # This content can be customized by providing your own template
-banner_content_issue: "{{ '\n' ~ lookup('ansible.builtin.template', 'issue.j2') ~ '\n' }}"
+banner_issue_template: "{{ '\n' ~ lookup('ansible.builtin.template', 'issue.j2') ~ '\n' }}"
+
+# Default description for the banner template
+# Only needed when the default template is used
+banner_issue_description: This system is managed by Ansible!
 
 # Define the custom content for the Linux message of the day (MOTD)
 # By default, setting this value to an empty string will clear the existing MOTD content.
-banner_content_motd: ""
+banner_motd_template: ""
