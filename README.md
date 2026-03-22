@@ -1,4 +1,4 @@
-# Ansible Role: Banner
+# Ansible Role: banner
 
 [![Ansible Molecule](https://github.com/leberkaslabs/ansible-role-banner/actions/workflows/molecule.yml/badge.svg)](https://github.com/leberkaslabs/ansible-role-banner/actions/workflows/molecule.yml)
 
