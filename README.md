@@ -16,11 +16,9 @@ The default values for the variables are set in [defaults/main.yml](defaults/mai
 ```yaml
 - hosts: all
   roles:
-    - role: dudecalledbro.banner
+    - role: leberkaslabs.banner
 ```
 
 ## License
 
-Copyright © 2025 Niclas Spreng
-
-Licensed under the [MIT license](LICENSE).
+Copyright (c) 2026 Niclas Spreng

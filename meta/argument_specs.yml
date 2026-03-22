@@ -1,9 +1,9 @@
 ---
 argument_specs:
   main:
-    short_description: banner
+    author: Niclas Spreng
     description: Manage custom system login banner.
-    author: dudecalledbro
+    short_description: banner
     options:
       banner_issue_template:
         type: str
