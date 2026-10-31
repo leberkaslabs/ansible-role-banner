@@ -1,5 +1,5 @@
 ---
-- name: Manage custom system login banner
+- name: Set pre-login banner for console and SSH
   ansible.builtin.copy:
     content: "{{ banner_issue_template }}"
     dest: "{{ item }}"
@@ -10,10 +10,29 @@
     - /etc/issue
     - /etc/issue.net
 
-- name: Manage custom message of the day
+- name: Deploy message of the day to /etc/motd
   ansible.builtin.copy:
     content: "{{ banner_motd_template }}"
     dest: /etc/motd
     owner: root
     group: root
     mode: "0644"
+
+- name: Collect dynamic motd scripts
+  ansible.builtin.find:
+    paths: /etc/update-motd.d
+    file_type: file
+    excludes: "{{ banner_motd_dynamic_exceptions }}"
+  register: _banner
+  when:
+    - ansible_facts.os_family == "Debian"
+    - banner_motd_disable_dynamic | ansible.builtin.bool
+
+- name: Disable dynamic motd scripts
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: a-x
+  loop: "{{ _banner.files | default([]) | map(attribute='path') }}"
+  when:
+    - ansible_facts.os_family == "Debian"
+    - banner_motd_disable_dynamic | ansible.builtin.bool

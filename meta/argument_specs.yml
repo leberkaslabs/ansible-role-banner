@@ -5,15 +5,24 @@ argument_specs:
     description: Manage custom system login banner.
     short_description: banner
     options:
-      banner_issue_template:
-        type: str
-        required: true
-        description: This content can be customized by providing your own template.
       banner_system_description:
         type: str
         required: false
-        description: Default description for the banner template (only used in default template).
+        description: System description shown by the default templates.
+      banner_issue_template:
+        type: str
+        required: false
+        description: Pre-login banner for /etc/issue and /etc/issue.net.
       banner_motd_template:
         type: str
-        required: true
-        description: Define the custom content for the Linux message of the day.
+        required: false
+        description: Post-login message for /etc/motd.
+      banner_motd_disable_dynamic:
+        type: bool
+        required: false
+        description: Disable all scripts in /etc/update-motd.d (Debian family only).
+      banner_motd_dynamic_exceptions:
+        type: list
+        elements: str
+        required: false
+        description: Script names in /etc/update-motd.d to keep enabled.

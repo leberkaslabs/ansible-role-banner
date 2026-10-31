@@ -1,12 +1,17 @@
 ---
-# Generate the Linux login banner content by rendering the 'issue.j2' template
+# System description shown by the default templates
+banner_system_description: This system is managed by Ansible!
+
+# Pre-login banner for /etc/issue and /etc/issue.net
 # This content can be customized by providing your own template
 banner_issue_template: "{{ '\n' ~ lookup('ansible.builtin.template', 'issue.j2') ~ '\n' }}"
 
-# Default description for the banner template
-# Only needed when the default template is used
-banner_system_description: This system is managed by Ansible!
-
-# Define the custom content for the Linux message of the day (MOTD)
+# Post-login message for /etc/motd
 # By default, setting this value to an empty string will clear the existing MOTD content.
 banner_motd_template: "{{ '\n' ~ lookup('ansible.builtin.template', 'motd.j2') ~ '\n' }}"
+
+# Disable all scripts in /etc/update-motd.d
+banner_motd_disable_dynamic: true
+banner_motd_dynamic_exceptions:
+  - 92-unattended-upgrades
+  # - 98-reboot-required
